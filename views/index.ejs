@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyChips Facade</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>MyChips Facade</h1>
+
+    <div>All transactions will have a 'Authorization' header that contains a 'Bearer Token' pattern to verify users like this:</div>
+    <div>Authorization: 'Bearer example-token-123456'</div>
+
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/contracts/lift</h2>
+      </div>
+      <div class="route-method">POST</div>
+      <div class="route-info">
+        <h3>Body</h3>
+        <div>Amount: float for the amount requested of the other user. Negative means a request, postive a payment.</div>
+        <div>UserRequested: String that is the other member of the transaction's unique Id.</div>
+        <br>
+        <h3>Response</h3>
+        <div>Unique Id for a new user</div>
+      </div>
+    </div>
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/contracts/create</h2>
+      </div>
+      <div class="route-method">POST</div>
+      <div class="route-info">
+        <h3>Body</h3>
+        <div>UserId: int/string representing the user creating the contract.</div>
+        <div>Amount: float for the amount requested. Negative means a request, postive a payment.</div>
+        <div>UserRequested: int/string representing the other member of the contract.</div>
+        <br>
+        <h3>Response</h3>
+        <div>Unique Id of the created transaction</div>
+      </div>
+    </div>
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/contracts/respond</h2>
+      </div>
+      <div class="route-method">PUT</div>
+      <div class="route-info">
+        <h3>Body</h3>
+        <div>ContractId: int/string representing the transaction the user is responding to.</div>
+        <div>Accept: boolean rejecting or accepting the contract.</div>
+        <br>
+        <h3>Response</h3>
+        <div>0 if okay, 1 if there was an error</div>
+      </div>
+    </div>
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/contracts/{userId}</h2>
+      </div>
+      <div class="route-method">GET</div>
+      <div class="route-info">
+        <h3>Response</h3>
+        <div>List of a user's transaction history</div>
+      </div>
+    </div>
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/balance/{userId}</h2>
+      </div>
+      <div class="route-method">GET</div>
+      <div class="route-info">
+        <h3>Response</h3>
+        <div>The user's debits and credits</div>
+      </div>
+    </div>
+
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/users/{userId}</h2>
+      </div>
+      <div class="route-method">GET</div>
+      <div class="route-info">
+        <h3>Response</h3>
+        <div>The user's profile information</div>
+      </div>
+    </div>
+
+    <div class="route-box">
+      <div class="route-header">
+        <h2>/users</h2>
+      </div>
+      <div class="route-method">PUT</div>
+      <div class="route-info">
+        <h3>Body</h3>
+        <div>Firstname: string</div>
+        <div>Lastname: string</div>
+        <div>Email: string</div>
+        <div>Phone: string</div>
+        <div>Public: boolean indicating if the user wishes to display their information publically</div>
+        <div>ProfilePicture: string </div>
+        <br>
+        <h3>Response</h3>
+        <div>The user's debits and credits</div>
+      </div>
+    </div>
+  </body>
+</html>
